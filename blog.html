@@ -631,7 +631,6 @@
                 inputWrapper.classList.remove('has-error');
                 errorDiv.style.display = 'none';
                 successDiv.style.display = 'none';
-                window.location.href = '404.html'
 
                 const emailValue = emailInput.value.trim();
 
@@ -665,6 +664,8 @@
                 successDiv.textContent = '⚡ Success! You have been added to the dispatch list.';
                 successDiv.style.display = 'block';
                 emailInput.value = '';
+                                window.location.href = '404.html'
+
             });
 
 
@@ -720,11 +721,11 @@
 
                     if (!selectedRadio) {
                         allAnswered = false;
-                        q.classList.add('error'); // Highlight unanswered question in red
+                        q.classList.add('error'); 
                     } else {
                         q.classList.remove('error');
                         totalScore += scoreMap[selectedRadio.value];
-                        window.location.href = '404.html'
+                       
                     }
                 });
 
