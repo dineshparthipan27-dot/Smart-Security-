@@ -25,6 +25,7 @@
       line-height: 1.6;
       selection-background-color: var(--accent-teal);
       selection-color: var(--bg-deep);
+      padding: 100px;
   }
 
   a {
@@ -156,6 +157,7 @@
       text-align: center;
       overflow: hidden;
       padding: 80px 20px;
+      padding-top: 100px;
   }
 
   .hero-title {
