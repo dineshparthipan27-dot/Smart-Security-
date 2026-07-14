@@ -8,22 +8,23 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #FFB703;      /* Custom Warm Amber Gold */
+            --primary-color: #FFB703;
             --primary-light: rgba(255, 183, 3, 0.15);
             --primary-dark: #d99b00;
             --accent-blue: #00F5D4;
             --danger-red: #FF4D4D;
-            
-            --bg-color: #040811;           /* Deep Cyber Navy Background */
-            --card-bg: #0b1322;            /* Dark Glass Card Surface */
+
+            --bg-color: #040811;
+            --card-bg: #0b1322;
             --border-color: rgba(255, 255, 255, 0.08);
-            
-            --text-main: #F8FAFC;          /* Bright White Text */
-            --text-muted: #94A3B8;         /* Muted Slate Grey */
+
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
 
             --sidebar-bg: #070d18;
             --sidebar-hover: #111e33;
@@ -50,7 +51,7 @@
             width: 100%;
         }
 
-        /* --- SIDEBAR NAVIGATION --- */
+
         .sidebar {
             width: 270px;
             background-color: var(--sidebar-bg);
@@ -76,7 +77,9 @@
             backdrop-filter: blur(4px);
         }
 
-        .sidebar-overlay.active { display: block; }
+        .sidebar-overlay.active {
+            display: block;
+        }
 
         .sidebar-header {
             padding: 24px 20px;
@@ -148,7 +151,9 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        .menu-link.active i { color: var(--primary-color); }
+        .menu-link.active i {
+            color: var(--primary-color);
+        }
 
         .sidebar-bottom {
             padding: 20px;
@@ -166,7 +171,7 @@
             border-left: 4px solid var(--danger-red);
         }
 
-        /* --- MAIN CONTENT AREA --- */
+
         .main-content {
             flex: 1;
             display: flex;
@@ -246,7 +251,7 @@
             color: var(--primary-color);
         }
 
-        /* --- VIEW SECTIONS & ANIMATIONS --- */
+
         .view-section {
             display: none;
             padding: 30px;
@@ -255,11 +260,20 @@
             gap: 30px;
         }
 
-        .view-section.active { display: flex; }
+        .view-section.active {
+            display: flex;
+        }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section-title {
@@ -285,7 +299,7 @@
             transform: translateY(0);
         }
 
-        /* --- STATS GRID --- */
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -335,7 +349,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- CONTENT BOXES & GRIDS --- */
+
         .content-box {
             background: var(--card-bg);
             border-radius: 18px;
@@ -356,8 +370,10 @@
             width: 100%;
         }
 
-        /* --- INTERACTIVE FORMS --- */
-        .input-group { margin-bottom: 20px; }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
 
         .input-group label {
             display: block;
@@ -381,7 +397,10 @@
             transition: 0.3s;
         }
 
-        .input-group select option { background: var(--card-bg); color: #fff; }
+        .input-group select option {
+            background: var(--card-bg);
+            color: #fff;
+        }
 
         .input-group input:focus,
         .input-group select:focus,
@@ -417,7 +436,7 @@
             border: 1px dashed #00E676;
         }
 
-        /* --- BUTTONS --- */
+
         .main-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: var(--bg-color);
@@ -458,7 +477,7 @@
             color: var(--bg-color);
         }
 
-        /* --- TIMELINE --- */
+
         .timeline {
             margin-top: 15px;
             border-left: 2px solid var(--border-color);
@@ -508,8 +527,11 @@
             border: 1px solid var(--border-color);
         }
 
-        /* --- DATA TABLES --- */
-        .table-container { width: 100%; overflow-x: auto; }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
 
         table {
             width: 100%;
@@ -518,7 +540,8 @@
             min-width: 650px;
         }
 
-        th, td {
+        th,
+        td {
             padding: 16px 14px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
@@ -542,11 +565,25 @@
             letter-spacing: 0.5px;
         }
 
-        .status.active { background: rgba(0, 245, 212, 0.15); color: var(--accent-blue); border: 1px solid rgba(0, 245, 212, 0.3); }
-        .status.warning { background: rgba(255, 183, 3, 0.15); color: var(--primary-color); border: 1px solid rgba(255, 183, 3, 0.3); }
-        .status.critical { background: rgba(255, 77, 77, 0.15); color: var(--danger-red); border: 1px solid rgba(255, 77, 77, 0.3); }
+        .status.active {
+            background: rgba(0, 245, 212, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+        }
 
-        /* --- MEDIA GALLERY (CCTV CAMERAS) --- */
+        .status.warning {
+            background: rgba(255, 183, 3, 0.15);
+            color: var(--primary-color);
+            border: 1px solid rgba(255, 183, 3, 0.3);
+        }
+
+        .status.critical {
+            background: rgba(255, 77, 77, 0.15);
+            color: var(--danger-red);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+        }
+
+
         .media-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -574,7 +611,9 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .media-info { padding: 16px; }
+        .media-info {
+            padding: 16px;
+        }
 
         .media-info h4 {
             font-size: 14px;
@@ -613,30 +652,81 @@
             text-decoration: none;
         }
 
-        .btn-live { background: rgba(0, 245, 212, 0.15); color: var(--accent-blue); border: 1px solid rgba(0, 245, 212, 0.3); }
-        .btn-live:hover { background: var(--accent-blue); color: var(--bg-color); }
+        .btn-live {
+            background: rgba(0, 245, 212, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+        }
 
-        .btn-record { background: rgba(255, 183, 3, 0.15); color: var(--primary-color); border: 1px solid rgba(255, 183, 3, 0.3); }
-        .btn-record:hover { background: var(--primary-color); color: var(--bg-color); }
+        .btn-live:hover {
+            background: var(--accent-blue);
+            color: var(--bg-color);
+        }
 
-        /* --- 100% MOBILE RESPONSIVENESS --- */
+        .btn-record {
+            background: rgba(255, 183, 3, 0.15);
+            color: var(--primary-color);
+            border: 1px solid rgba(255, 183, 3, 0.3);
+        }
+
+        .btn-record:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+
         @media (max-width: 992px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.active { transform: translateX(0); }
-            .main-content { margin-left: 0; width: 100%; }
-            .menu-toggle, .close-btn { display: block; }
-            .two-col-grid { grid-template-columns: 1fr; }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .menu-toggle,
+            .close-btn {
+                display: block;
+            }
+
+            .two-col-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
-            .top-header { padding: 15px 20px; }
-            .view-section { padding: 15px; gap: 20px; }
-            .user-info { display: none; }
-            .greeting h1 { font-size: 18px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .content-box { padding: 20px; }
+            .top-header {
+                padding: 15px 20px;
+            }
+
+            .view-section {
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .user-info {
+                display: none;
+            }
+
+            .greeting h1 {
+                font-size: 18px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-box {
+                padding: 20px;
+            }
         }
-          .logo-img {
+
+        .logo-img {
             width: 150px;
         }
 
@@ -667,7 +757,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-top">
                 <div class="sidebar-header">
-                  <div class="logo-da">
+                    <div class="logo-da">
                         <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
                     </div>
                     <button class="close-btn" id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
@@ -675,20 +765,20 @@
 
                 <ul class="sidebar-menu">
                     <li><a class="menu-link active" data-target="dashboard-view">
-                        <i class="fa-solid fa-satellite-dish"></i> Live Command Grid
-                    </a></li>
+                            <i class="fa-solid fa-satellite-dish"></i> Live Command Grid
+                        </a></li>
                     <li><a class="menu-link" data-target="editorial-view">
-                        <i class="fa-solid fa-file-shield"></i> Deploy Blueprint
-                    </a></li>
+                            <i class="fa-solid fa-file-shield"></i> Deploy Blueprint
+                        </a></li>
                     <li><a class="menu-link" data-target="reporters-view">
-                        <i class="fa-solid fa-video"></i> Active CCTV Grids
-                    </a></li>
+                            <i class="fa-solid fa-video"></i> Active CCTV Grids
+                        </a></li>
                     <li><a class="menu-link" data-target="schedule-view">
-                        <i class="fa-solid fa-user-shield"></i> Patrol Dispatch
-                    </a></li>
+                            <i class="fa-solid fa-user-shield"></i> Patrol Dispatch
+                        </a></li>
                     <li><a class="menu-link" data-target="media-view">
-                        <i class="fa-solid fa-server"></i> Cloud Vault Assets
-                    </a></li>
+                            <i class="fa-solid fa-server"></i> Cloud Vault Assets
+                        </a></li>
                 </ul>
             </div>
 
@@ -734,7 +824,8 @@
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
+                        <div class="stat-icon"
+                            style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
                             <i class="fa-solid fa-user-secret"></i>
                         </div>
                         <div class="stat-details">
@@ -754,7 +845,8 @@
                 </section>
 
                 <section class="content-box scroll-anim">
-                    <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Automated Threat Detection Volume (24h)</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Automated Threat Detection Volume
+                        (24h)</h2>
                     <div class="chart-container">
                         <canvas id="trafficChart"></canvas>
                     </div>
@@ -764,7 +856,8 @@
             <div id="editorial-view" class="view-section">
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
+                        <div class="stat-icon"
+                            style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
                             <i class="fa-solid fa-compass-drafting"></i>
                         </div>
                         <div class="stat-details">
@@ -785,17 +878,20 @@
 
                 <div class="two-col-grid">
                     <section class="content-box scroll-anim">
-                        <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Architect New Perimeter Grid</h2>
-                        
+                        <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Architect New Perimeter Grid
+                        </h2>
+
                         <form id="articleForm" novalidate>
                             <div id="formSuccess" class="success-msg">
                                 <i class="fa-solid fa-shield-check"></i> Defense Blueprint Deployed to Cloud Grid!
                             </div>
-                            
+
                             <div class="input-group">
                                 <label>Facility / Perimeter Name *</label>
-                                <input type="text" id="headlineInput" placeholder="e.g. Silicon Valley Server Vault 04" required>
-                                <div class="error-msg" id="headlineError">Please enter a valid facility name (min 5 chars).</div>
+                                <input type="text" id="headlineInput" placeholder="e.g. Silicon Valley Server Vault 04"
+                                    required>
+                                <div class="error-msg" id="headlineError">Please enter a valid facility name (min 5
+                                    chars).</div>
                             </div>
 
                             <div class="input-group">
@@ -818,7 +914,8 @@
                                     <option value="high">High Priority: 24/7 Armed Patrol Response</option>
                                     <option value="standard">Standard Defense: AI Monitoring Only</option>
                                 </select>
-                                <div class="error-msg" id="priorityError">Please select the threat readiness level.</div>
+                                <div class="error-msg" id="priorityError">Please select the threat readiness level.
+                                </div>
                             </div>
 
                             <button type="submit" class="main-btn">
@@ -832,7 +929,9 @@
                         <div class="timeline">
                             <div class="timeline-item">
                                 <h4><span class="time-badge">14:30</span> AI Drone Dispatched</h4>
-                                <p><strong>Sector 7B</strong> thermal sensor triggered by wildlife. Patrol Drone <span style="color: var(--primary-color);">#04-Alpha</span> verified perimeter clear.</p>
+                                <p><strong>Sector 7B</strong> thermal sensor triggered by wildlife. Patrol Drone <span
+                                        style="color: var(--primary-color);">#04-Alpha</span> verified perimeter clear.
+                                </p>
                             </div>
                             <div class="timeline-item">
                                 <h4><span class="time-badge">13:15</span> Firmware Over-The-Air</h4>
@@ -840,7 +939,8 @@
                             </div>
                             <div class="timeline-item">
                                 <h4><span class="time-badge">11:45</span> Biometric Access Log</h4>
-                                <p>Chief Systems Engineer granted temporary vault access for routine server maintenance.</p>
+                                <p>Chief Systems Engineer granted temporary vault access for routine server maintenance.
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -849,7 +949,8 @@
 
             <div id="reporters-view" class="view-section">
                 <section class="content-box scroll-anim">
-                    <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Global Perimeter Status Table</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Global Perimeter Status Table
+                    </h2>
                     <div class="table-container">
                         <table>
                             <thead>
@@ -865,7 +966,8 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Silicon Valley Tech Park</strong></td>
-                                    <td><i class="fa-solid fa-video" style="color:var(--primary-color);"></i> Neural CCTV Grid</td>
+                                    <td><i class="fa-solid fa-video" style="color:var(--primary-color);"></i> Neural
+                                        CCTV Grid</td>
                                     <td>0.32s</td>
                                     <td><strong>1,240</strong></td>
                                     <td><span class="status active">Online & Secure</span></td>
@@ -873,7 +975,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Metro Retail Logistics Hub</strong></td>
-                                    <td><i class="fa-solid fa-plane-up" style="color:var(--accent-blue);"></i> Thermal Drones</td>
+                                    <td><i class="fa-solid fa-plane-up" style="color:var(--accent-blue);"></i> Thermal
+                                        Drones</td>
                                     <td>0.45s</td>
                                     <td><strong>85</strong></td>
                                     <td><span class="status warning">Weather Warning</span></td>
@@ -881,7 +984,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Apex Global Vault 01</strong></td>
-                                    <td><i class="fa-solid fa-fingerprint" style="color:var(--danger-red);"></i> Biometric Locks</td>
+                                    <td><i class="fa-solid fa-fingerprint" style="color:var(--danger-red);"></i>
+                                        Biometric Locks</td>
                                     <td>0.12s</td>
                                     <td><strong>320</strong></td>
                                     <td><span class="status active">Online & Secure</span></td>
@@ -889,7 +993,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>North Atlantic Cable Station</strong></td>
-                                    <td><i class="fa-solid fa-satellite" style="color:var(--text-muted);"></i> LiDAR Sensors</td>
+                                    <td><i class="fa-solid fa-satellite" style="color:var(--text-muted);"></i> LiDAR
+                                        Sensors</td>
                                     <td>0.89s</td>
                                     <td><strong>12</strong></td>
                                     <td><span class="status critical">Offline Failover</span></td>
@@ -904,7 +1009,8 @@
             <div id="schedule-view" class="view-section">
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
+                        <div class="stat-icon"
+                            style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
                             <i class="fa-solid fa-clock"></i>
                         </div>
                         <div class="stat-details">
@@ -924,7 +1030,8 @@
                 </section>
 
                 <section class="content-box scroll-anim">
-                    <h2 class="section-title"><i class="fa-solid fa-calendar-check"></i> Automated Patrol Dispatch Queue</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-calendar-check"></i> Automated Patrol Dispatch Queue
+                    </h2>
                     <div class="table-container">
                         <table>
                             <thead>
@@ -967,7 +1074,8 @@
             <div id="media-view" class="view-section">
                 <section class="stats-grid scroll-anim">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
+                        <div class="stat-icon"
+                            style="background: rgba(255, 183, 3, 0.15); color: var(--primary-color);">
                             <i class="fa-solid fa-server"></i>
                         </div>
                         <div class="stat-details">
@@ -987,19 +1095,23 @@
                 </section>
 
                 <section class="content-box scroll-anim">
-                    <h2 class="section-title"><i class="fa-solid fa-photo-film"></i> Live CCTV & Drone Feeds (Unsplash Tech Img)</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-photo-film"></i> Live CCTV & Drone Feeds (Unsplash
+                        Tech Img)</h2>
                     <div class="media-gallery">
                         <div class="media-item">
                             <img src="asset/se4.webp" alt="CCTV Feed" class="media-img">
                             <div class="media-info">
                                 <h4>CAM #01 - North Gate Entrance</h4>
                                 <div class="media-meta">
-                                    <span><i class="fa-solid fa-circle text-accent" style="color: var(--accent-blue); font-size: 8px;"></i> LIVE 4K</span>
+                                    <span><i class="fa-solid fa-circle text-accent"
+                                            style="color: var(--accent-blue); font-size: 8px;"></i> LIVE 4K</span>
                                     <span>0.12s Latency</span>
                                 </div>
                                 <div class="media-actions">
-                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i> Stream</a>
-                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i> Archive</a>
+                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i>
+                                        Stream</a>
+                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i>
+                                        Archive</a>
                                 </div>
                             </div>
                         </div>
@@ -1009,12 +1121,15 @@
                             <div class="media-info">
                                 <h4>CAM #04 - Main Server Rack Vault</h4>
                                 <div class="media-meta">
-                                    <span><i class="fa-solid fa-circle" style="color: var(--accent-blue); font-size: 8px;"></i> LIVE THERMAL</span>
+                                    <span><i class="fa-solid fa-circle"
+                                            style="color: var(--accent-blue); font-size: 8px;"></i> LIVE THERMAL</span>
                                     <span>0.08s Latency</span>
                                 </div>
                                 <div class="media-actions">
-                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i> Stream</a>
-                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i> Archive</a>
+                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i>
+                                        Stream</a>
+                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i>
+                                        Archive</a>
                                 </div>
                             </div>
                         </div>
@@ -1024,12 +1139,16 @@
                             <div class="media-info">
                                 <h4>DRONE #02 - Aerial Perimeter Patrol</h4>
                                 <div class="media-meta">
-                                    <span><i class="fa-solid fa-circle" style="color: var(--primary-color); font-size: 8px;"></i> PATROL AIRBORNE</span>
+                                    <span><i class="fa-solid fa-circle"
+                                            style="color: var(--primary-color); font-size: 8px;"></i> PATROL
+                                        AIRBORNE</span>
                                     <span>145m Altitude</span>
                                 </div>
                                 <div class="media-actions">
-                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i> Stream</a>
-                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i> Archive</a>
+                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i>
+                                        Stream</a>
+                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i>
+                                        Archive</a>
                                 </div>
                             </div>
                         </div>
@@ -1039,12 +1158,16 @@
                             <div class="media-info">
                                 <h4>BIO #08 - Executive Vault Keypad</h4>
                                 <div class="media-meta">
-                                    <span><i class="fa-solid fa-lock" style="color: var(--accent-blue); font-size: 10px;"></i> LOCKED & ARMED</span>
+                                    <span><i class="fa-solid fa-lock"
+                                            style="color: var(--accent-blue); font-size: 10px;"></i> LOCKED &
+                                        ARMED</span>
                                     <span>AES-256 Bit</span>
                                 </div>
                                 <div class="media-actions">
-                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i> Stream</a>
-                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i> Archive</a>
+                                    <a href="404.html" class="media-btn btn-live"><i class="fa-solid fa-eye"></i>
+                                        Stream</a>
+                                    <a href="404.html" class="media-btn btn-record"><i class="fa-solid fa-download"></i>
+                                        Archive</a>
                                 </div>
                             </div>
                         </div>
@@ -1055,7 +1178,7 @@
     </div>
 
     <script>
-        // 1. Retrieve logged-in user from LocalStorage
+
         const emailValue = localStorage.getItem("UserMail");
         const email = emailValue || "commander@smartsec.ai";
         const extractedName = email.split("@")[0];
@@ -1065,7 +1188,7 @@
         const welcomeEl = document.querySelector(".welcome-name");
         if (welcomeEl) { welcomeEl.textContent = `| Welcome, ${formattedName} 👋`; }
 
-        // 2. Mobile Sidebar Slide Drawer
+
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebarOverlay');
         const openSidebarBtn = document.getElementById('openSidebar');
@@ -1078,7 +1201,7 @@
         closeSidebarBtn.addEventListener('click', closeSidebar);
         overlay.addEventListener('click', closeSidebar);
 
-        // 3. Tab Navigation & View Switching
+
         const menuLinks = document.querySelectorAll('.sidebar-menu .menu-link');
         const views = document.querySelectorAll('.view-section');
         const pageTitle = document.getElementById('page-title');
@@ -1102,7 +1225,7 @@
             });
         });
 
-        // 4. Chart.js - Automated Threat Detection Graph
+
         const ctx = document.getElementById('trafficChart').getContext('2d');
         const trafficChart = new Chart(ctx, {
             type: 'line',
@@ -1127,12 +1250,12 @@
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
                 scales: {
-                    y: { 
-                        beginAtZero: true, 
+                    y: {
+                        beginAtZero: true,
                         grid: { color: 'rgba(255, 255, 255, 0.05)' },
                         ticks: { color: '#94A3B8' }
                     },
-                    x: { 
+                    x: {
                         grid: { display: false },
                         ticks: { color: '#94A3B8' }
                     }
@@ -1140,7 +1263,7 @@
             }
         });
 
-        // 5. Scroll Animations (IntersectionObserver)
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) { entry.target.classList.add('show'); }
@@ -1156,7 +1279,7 @@
         }
         triggerAnimations();
 
-        // 6. Custom Real-Time Form Validation
+
         document.getElementById('articleForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -1171,7 +1294,7 @@
 
             let isValid = true;
 
-            // Reset errors
+
             headlineInput.classList.remove('input-error');
             categorySelect.classList.remove('input-error');
             prioritySelect.classList.remove('input-error');
@@ -1180,40 +1303,40 @@
             priorityError.style.display = 'none';
             formSuccess.style.display = 'none';
 
-            // Validate Facility Name
+
             if (headlineInput.value.trim().length < 5) {
                 headlineInput.classList.add('input-error');
                 headlineError.style.display = 'block';
                 isValid = false;
             }
 
-            // Validate Hardware Topology Select
+
             if (categorySelect.value === '') {
                 categorySelect.classList.add('input-error');
                 categoryError.style.display = 'block';
                 isValid = false;
             }
 
-            // Validate Threat Readiness Select
+
             if (prioritySelect.value === '') {
                 prioritySelect.classList.add('input-error');
                 priorityError.style.display = 'block';
                 isValid = false;
             }
 
-            // If valid, display success banner and reset!
+
             if (isValid) {
                 formSuccess.style.display = 'block';
                 setTimeout(() => {
                     this.reset();
                     formSuccess.style.display = 'none';
-                     window.location.href = '404.html'
-                    // alert('Defense Blueprint successfully deployed to active radar nodes!');
+                    window.location.href = '404.html'
+
                 }, 500);
             }
         });
 
-        // Remove error outline instantly as user types/selects
+
         const inputs = document.querySelectorAll('#headlineInput, #categorySelect, #prioritySelect');
         inputs.forEach(input => {
             input.addEventListener('input', () => {
@@ -1224,4 +1347,5 @@
         });
     </script>
 </body>
+
 </html>

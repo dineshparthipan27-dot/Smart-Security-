@@ -7,7 +7,7 @@ const signupForm = document.getElementById("signupForm");
 const showSignup = document.getElementById("showSignup");
 const showLogin = document.getElementById("showLogin");
 
-/* --- 1. TAB SWITCHING --- */
+
 function showLoginForm() {
     loginForm.classList.remove("hidden");
     signupForm.classList.add("hidden");
@@ -27,24 +27,24 @@ signupBtn.addEventListener("click", showSignupForm);
 showSignup.addEventListener("click", showSignupForm);
 showLogin.addEventListener("click", showLoginForm);
 
-/* --- 2. PASSWORD TOGGLE --- */
+
 document.querySelectorAll(".toggle-password").forEach(icon => {
     icon.addEventListener("click", () => {
         const input = icon.previousElementSibling;
         if (input.type === "password") {
             input.type = "text";
-                icon.classList.remove("fa-eye-slash");
+            icon.classList.remove("fa-eye-slash");
             icon.classList.add("fa-eye");
-          
+
         } else {
             input.type = "password";
-          icon.classList.remove("fa-eye");
+            icon.classList.remove("fa-eye");
             icon.classList.add("fa-eye-slash");
         }
     });
 });
 
-/* --- 3. VALIDATION REGEX & HELPERS --- */
+
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
@@ -65,7 +65,7 @@ function shake(form) {
     setTimeout(() => { form.style.animation = ""; }, 400);
 }
 
-/* --- 4. REMEMBER ME (LOCAL STORAGE) --- */
+
 window.addEventListener("DOMContentLoaded", () => {
     const savedMail = localStorage.getItem("rememberEmail");
     if (savedMail) {
@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/* --- 5. REAL-TIME INPUT VALIDATION (LOGIN) --- */
+
 const loginEmail = document.getElementById("loginEmail");
 const loginPassword = document.getElementById("loginPassword");
 
@@ -96,7 +96,7 @@ loginPassword.addEventListener("input", () => {
     }
 });
 
-/* --- 6. REAL-TIME INPUT VALIDATION (SIGNUP) --- */
+
 const signupName = document.getElementById("signupName");
 const signupEmail = document.getElementById("signupEmail");
 const signupPassword = document.getElementById("signupPassword");
@@ -134,7 +134,7 @@ signupConfirm.addEventListener("input", () => {
     }
 });
 
-/* --- 7. BUTTON LOADING STATE --- */
+
 function loading(button, text) {
     button.disabled = true;
     button.dataset.text = button.innerHTML;
@@ -146,7 +146,7 @@ function resetButton(button) {
     button.innerHTML = button.dataset.text;
 }
 
-/* --- 8. LOGIN SUBMIT EVENT --- */
+
 loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
     let isValid = true;
@@ -195,16 +195,16 @@ loginForm.addEventListener("submit", function (e) {
     setTimeout(() => {
         resetButton(loginButton);
         if (role === "admin") {
-            // alert("Access Granted: Welcome Admin! Redirecting to Command Dashboard...");
-             window.location.href = "admin.html";
+
+            window.location.href = "admin.html";
         } else {
-            // alert("Access Granted: Welcome to your Security Portal!");
-             window.location.href = "user.html";
+
+            window.location.href = "user.html";
         }
     }, 1200);
 });
 
-/* --- 9. SIGNUP SUBMIT EVENT --- */
+
 signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
     let isValid = true;
@@ -267,7 +267,7 @@ signupForm.addEventListener("submit", function (e) {
     }, 1500);
 });
 
-/* --- 10. ENTER KEY SUBMISSION --- */
+
 document.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
         const activeForm = loginForm.classList.contains("hidden") ? signupForm : loginForm;
@@ -276,7 +276,7 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
-/* --- 11. CLEAR ERRORS ON ROLE CHANGE --- */
+
 document.getElementById("loginRole").addEventListener("change", () => {
     clearError("loginEmailError");
     clearError("loginPasswordError");
@@ -289,7 +289,7 @@ document.getElementById("signupRole").addEventListener("change", () => {
     clearError("signupConfirmError");
 });
 
-/* --- 12. PREVENT DOUBLE CLICK SUBMISSION --- */
+
 document.querySelectorAll(".main-btn").forEach(btn => {
     btn.addEventListener("dblclick", function (e) { e.preventDefault(); });
 });
