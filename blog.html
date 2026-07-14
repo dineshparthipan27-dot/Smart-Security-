@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog </title>
+
+    <!-- Google Font: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5.3 CSS (MANDATORY FOR NAVBAR TO WORK) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="smart.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container">
+
+            <a href="index.html" class="logo-container">
+                <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
+            </a>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="navbar-toggler custom-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars text-info fs-4"></i>
+            </button>
+
+            <!-- Horizontal Menu Links & Login -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="contact.html">Contact</a>
+                    </li>
+                    <!-- Login Button -->
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn btn-login px-4 py-2 text-center d-block">
+                            <i class="fa-solid fa-lock me-2"></i>Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="hero-section">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+
+        <div class="container" style="position: relative; z-index: 1;" data-aos="zoom-out" data-aos-duration="1000">
+            <span class="text-accent"
+                style="font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 12px;">
+                📡 Tactical Intelligence Hub
+            </span>
+            <h1 class="hero-title">
+                Cybersecurity & <br>
+                <span class="text-accent">AI Surveillance Insights</span>
+            </h1>
+            <p class="hero-lead">
+                Stay ahead of modern threats with our latest research, deployment guides, and expert analyses on
+                automated defense grids and smart infrastructure.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE CATEGORY FILTER BAR -->
+    <section class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="filter-bar">
+            <a href="404.html" class="filter-btn active">⚡ All Insights</a>
+            <a href="404.html" class="filter-btn">🧠 AI Surveillance</a>
+            <a href="404.html" class="filter-btn">🔐 Cybersecurity</a>
+            <a href="404.html" class="filter-btn">🏢 Enterprise Defense</a>
+            <a href="404.html" class="filter-btn">🛸 Drone Patrols</a>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED HERO ARTICLE (MASS HIGHLIGHT) -->
+    <section class="section-padding" style="padding-top: 10px;">
+        <div class="container">
+            <div class="glass-card grid-2" style="padding: 40px; border-color: var(--border-glow);" data-aos="fade-up">
+                <div class="blog-img-wrapper" style="height: 100%; min-height: 300px; margin-bottom: 0;">
+                    <span class="blog-tag" style="background: var(--accent-teal); color: #040711;">🔥 FEATURED
+                        RESEARCH</span>
+                    <span class="read-time">7 Min Read</span>
+                    <img src="asset/se2.webp"
+                        alt="Matrix Cyber Code" class="blog-img">
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <span
+                        style="color: var(--accent-blue); font-size: 0.85rem; font-weight: 700; margin-bottom: 10px;">JULY
+                        2026 • THREAT ANALYSIS</span>
+                    <h2 style="font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px;">
+                        The Evolution of Zero-Latency Neural Video Surveillance
+                    </h2>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 24px;">
+                        How edge-computing and NVIDIA neural processing chips are allowing surveillance cameras to
+                        predict perimeter breaches before an intruder even touches the fence line.
+                    </p>
+                    <div style="margin-bottom: 25px;">
+                        <a href="404.html" class="btn-cyber">Read Full Paper →</a>
+                    </div>
+                    <div class="author-box" style="padding-top: 15px;">
+                        <img src="asset/m1 (2).webp" alt="Arun Kumar"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">Arun Kumar</h5>
+                            <span>Founder & Chief Security Architect</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: LATEST ARTICLES GRID (6 ARTICLES) -->
+    <section class="section-padding bg-alternate">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading" data-aos="fade-up">Latest <span class="text-accent">Tactical
+                        Dispatches</span></h2>
+                <p class="section-subtext" data-aos="fade-up" data-aos-delay="100">Deep-dive technical articles written
+                    by our field operations team.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Article Card 1 -->
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">CYBERSECURITY</span>
+                        <span class="read-time">5 Min Read</span>
+                        <img src="asset/se1.webp"
+                            alt="Biometric Lock" class="blog-img">
+                    </div>
+                    <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 700;">JUNE 28, 2026</span>
+                    <h3 style="font-size: 1.3rem; margin: 10px 0 12px;">Securing IoT Perimeters Against Deepfake
+                        Biometrics</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        Why traditional facial recognition is failing, and how 3D LiDAR depth-scanning prevents spoofing
+                        attacks on corporate vaults.
+                    </p>
+                    <div class="author-box">
+                        <img src="asset/m1 (2).webp" alt="Divya Sharma"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">Divya Sharma</h5>
+                            <span>Head of AI & IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Card 2 -->
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">DRONE TECH</span>
+                        <span class="read-time">4 Min Read</span>
+                        <img src="asset/se2.webp"
+                            alt="Drone in Sky" class="blog-img">
+                    </div>
+                    <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 700;">JUNE 15, 2026</span>
+                    <h3 style="font-size: 1.3rem; margin: 10px 0 12px;">Autonomous Thermal Drone Patrols for Warehouses
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        A case study on how automated drone dispatch reduced nighttime false alarms by 84% across 12
+                        industrial logistics parks.
+                    </p>
+                    <div class="author-box">
+                        <img src="asset/m2 (2).webp" alt="Karthik Raj"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">Karthik Raj</h5>
+                            <span>Chief Operations Officer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Card 3 -->
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">ENTERPRISE</span>
+                        <span class="read-time">6 Min Read</span>
+                        <img src="asset/se3.webp"
+                            alt="Server Data Center" class="blog-img">
+                    </div>
+                    <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 700;">MAY 30, 2026</span>
+                    <h3 style="font-size: 1.3rem; margin: 10px 0 12px;">Cloud Redundancy: Surviving Local Grid Sabotage
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        Why storing CCTV footage locally is a fatal error. Exploring our AWS GovCloud cellular failover
+                        architecture.
+                    </p>
+                    <div class="author-box">
+                        <img src="asset/w1.webp" alt="Arun Kumar"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">priya</h5>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row of Articles -->
+            <div class="grid-3" style="margin-top: 30px;">
+                <!-- Article Card 4 -->
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">COMPLIANCE</span>
+                        <span class="read-time">3 Min Read</span>
+                        <img src="asset/se4.webp"
+                            alt="Global Network" class="blog-img">
+                    </div>
+                    <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 700;">MAY 18, 2026</span>
+                    <h3 style="font-size: 1.3rem; margin: 10px 0 12px;">Navigating AI Surveillance Privacy Laws in 2026
+                    </h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        How to maintain 100% GDPR and SOC 2 Type II compliance while deploying automated facial
+                        recognition grids.
+                    </p>
+                    <div class="author-box">
+                        <img src="asset/w1.webp" alt="Divya Sharma"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">Divya Sharma</h5>
+                            <span>Head of AI & IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Card 5 -->
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">CASE STUDY</span>
+                        <span class="read-time">8 Min Read</span>
+                        <img src="asset/se5.webp"
+                            alt="Smart Skyscrapers" class="blog-img">
+                    </div>
+                    <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 700;">APRIL 25, 2026</span>
+                    <h3 style="font-size: 1.3rem; margin: 10px 0 12px;">Securing a 40-Story Tech Park: A Blueprint</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        A step-by-step breakdown of how we integrated 450+ wireless IoT sensors into one unified command
+                        dashboard.
+                    </p>
+                    <div class="author-box">
+                        <img src="asset/m1 (2).webp" alt="Karthik Raj"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">Karthik Raj</h5>
+                            <span>Chief Operations Officer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Card 6 -->
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-img-wrapper">
+                        <span class="blog-tag">HARDWARE</span>
+                        <span class="read-time">5 Min Read</span>
+                        <img src="asset/se6.webp"
+                            alt="Microchip Motherboard" class="blog-img">
+                    </div>
+                    <span style="color: var(--accent-teal); font-size: 0.8rem; font-weight: 700;">APRIL 10, 2026</span>
+                    <h3 style="font-size: 1.3rem; margin: 10px 0 12px;">Sony Starvis vs. Thermal Imaging: Which is
+                        Better?</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                        Comparing low-light color night vision sensors against infrared thermal cameras for perimeter
+                        fence defense.
+                    </p>
+                    <div class="author-box">
+                        <img src="asset/m2 (2).webp" alt="Arun Kumar"
+                            class="author-img">
+                        <div class="author-info">
+                            <h5 style="color: #fff;">Arun Kumar</h5>
+                            <span>Founder & CEO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: TRENDING THREAT ALERT BOARD (SPECIALIZED SECTION) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div data-aos="fade-up">
+                    <span class="text-accent"
+                        style="font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">🚨 Current Threat
+                        Landscape</span>
+                    <h2 class="section-heading" style="margin-top: 10px;">Top Cyber-Physical <br><span
+                            class="text-accent">Security Threats</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        Our tactical monitoring centers track emerging intrusion methodologies daily. Here are the top 3
+                        vulnerabilities enterprises must patch immediately:
+                    </p>
+                    <a href="404.html" class="btn-ghost">Request Vulnerability Audit →</a>
+                </div>
+
+                <div data-aos="fade-up">
+                    <div class="trending-item">
+                        <span class="trending-num">01</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; margin-bottom: 6px; color: #fff;">RF Jamming on Wireless
+                                Cameras</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Intruders using portable signal
+                                jammers to disconnect Wi-Fi cameras. Solution: Deploy our cellular-failover encrypted
+                                hubs.</p>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <span class="trending-num">02</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; margin-bottom: 6px; color: #fff;">Deepfake Voice Access
+                                Spoofing</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">AI-generated voice clones attempting
+                                to override intercom security gates. Solution: Multi-factor biometric authentication.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="trending-item" style="margin-bottom: 0;">
+                        <span class="trending-num">03</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; margin-bottom: 6px; color: #fff;">Unencrypted Local NVR Theft
+                            </h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Physical theft of on-premise video
+                                recorders during break-ins. Solution: Zero-latency AWS GovCloud mirroring.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5.5: (NEW) INTERACTIVE KNOWLEDGE QUIZ & ASSESSOR -->
+    <section class="section-padding bg-alternate">
+        <div class="container" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="glass-card text-center"
+                style="padding: 50px 30px; max-width: 900px; margin: 0 auto; border-color: var(--border-glow); position: relative; overflow: hidden;">
+
+                <!-- Glowing Background Accent -->
+                <div
+                    style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--accent-teal); filter: blur(90px); opacity: 0.15; pointer-events: none;">
+                </div>
+
+                <span class="text-accent"
+                    style="font-weight: 700; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; display: block; margin-bottom: 10px;">
+                    🧠 Interactive Security Assessment
+                </span>
+                <h2 class="section-heading">How Vulnerable Is Your <br><span class="text-accent">Current Security
+                        Grid?</span></h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; font-size: 1.05rem;">
+                    Take this 30-second tactical quiz to test if your enterprise or residential perimeter is equipped to
+                    handle modern cyber-physical threats.
+                </p>
+
+               <div id="quiz-container" style="text-align: left; max-width: 650px; margin: 0 auto; background: rgba(4, 7, 17, 0.6); padding: 30px; border-radius: 15px; border: 1px solid #1e293b;">
+
+    <div class="quiz-question" style="margin-bottom: 25px;" data-question="1">
+        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #fff;">1. How is your CCTV footage currently stored?</h4>
+        <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="q1" value="low"> On-premise DVR/NVR only (No cloud backup)</label>
+            <label class="quiz-option"><input type="radio" name="q1" value="mid"> Local servers with basic weekly cloud backup</label>
+            <label class="quiz-option"><input type="radio" name="q1" value="high"> Zero-latency AES-256 encrypted cloud mirroring</label>
+        </div>
+    </div>
+
+    <div class="quiz-question" style="margin-bottom: 25px;" data-question="2">
+        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #fff;">2. What happens during a localized power & internet outage?</h4>
+        <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="q2" value="low"> Cameras go completely offline</label>
+            <label class="quiz-option"><input type="radio" name="q2" value="mid"> Battery generator keeps local recording alive</label>
+            <label class="quiz-option"><input type="radio" name="q2" value="high"> Battery backup + automated cellular (4G/5G) failover dispatch</label>
+        </div>
+    </div>
+
+    <div class="quiz-question" style="margin-bottom: 30px;" data-question="3">
+        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #fff;">3. How does your system detect an intruder?</h4>
+        <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="q3" value="low"> Passive recording (we check footage after a break-in occurs)</label>
+            <label class="quiz-option"><input type="radio" name="q3" value="mid"> Simple motion detection (often triggered by stray animals)</label>
+            <label class="quiz-option"><input type="radio" name="q3" value="high"> AI Neural threat prediction (instant human/weapon identification)</label>
+        </div>
+    </div>
+
+    <div class="text-center" style="text-align: center;">
+        <button id="calc-score-btn" class="btn-cyber" style="width: 100%; max-width: 300px; padding: 14px; border-radius: 8px; font-weight: 700; cursor: pointer;">Calculate Defense Score ⚡</button>
+    </div>
+
+    <div id="quiz-result"></div>
+
+</div>
+
+                    <div id="quiz-result"
+                        style="display: none; margin-top: 25px; padding: 20px; border-radius: 12px; text-align: center; font-weight: 600; border: 1px dashed var(--accent-teal); background: rgba(0, 245, 212, 0.05);">
+                        <!-- Result text will appear via JS -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: NEWSLETTER & INTELLIGENCE DISPATCH (LEAD CAPTURE) -->
+    <section class="section-padding bg-alternate text-center">
+        <div class="container" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="glass-card"
+                style="padding: 50px 30px; max-width: 850px; margin: 0 auto; border-color: var(--border-glow);">
+                <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📬</span>
+                <h2 class="section-heading">Join 10,000+ Security <br><span class="text-accent">Professionals &
+                        CTOs</span></h2>
+                <p style="color: var(--text-muted); max-width: 550px; margin: 0 auto; font-size: 1.05rem;">
+                    Subscribe to our bi-weekly dispatch. Receive exclusive vulnerability advisories, zero-day threat
+                    breakdowns, and physical security architecture guides.
+                </p>
+                <form id="securityForm" class="security-form" novalidate>
+                    <div class="input-wrapper" id="inputWrapper">
+                        <input type="email" id="workEmailInput" class="form-input"
+                            placeholder="Enter your work email address..." required>
+                        <button type="submit" class="form-btn">Subscribe Free ⚡</button>
+                    </div>
+                    <!-- Error & Success Message Containers -->
+                    <div id="formError" class="message-text error-text"></div>
+                    <div id="formSuccess" class="message-text success-text"></div>
+                </form>
+                <span style="display: block; font-size: 0.75rem; color: var(--text-muted); margin-top: 15px;">🔒 No
+                    spam. Unsubscribe anytime. We respect your data privacy.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: CALL TO ACTION -->
+    <section class="section-padding text-center" style="border-bottom: none;">
+        <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div class="glass-card"
+                style="padding: 60px 20px; border-color: rgba(0, 245, 212, 0.3); background: linear-gradient(180deg, var(--bg-card), rgba(0, 245, 212, 0.05));">
+                <span class="text-accent"
+                    style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">Put
+                    Intelligence Into Action</span>
+                <h2 class="section-heading">Ready to Architect Your <br><span class="text-accent">Security
+                        Ecosystem?</span></h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem;">
+                    Don't wait for a security breach to upgrade your defenses. Speak directly with our senior engineers
+                    today for a free spatial analysis.
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="404.html" class="btn-cyber" style="padding: 16px 40px; font-size: 1.1rem;">📞 Call
+                        An Engineer</a>
+                    <a href="404.html" class="btn-ghost"
+                        style="padding: 16px 40px; font-size: 1.1rem;">✉️ Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="custom-footer" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo-container">
+                        <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
+                    </a>
+                    <p class="footer-desc">
+                        Next-generation cyber & physical surveillance architectures engineered for absolute zero-breach
+                        security.
+                    </p>
+                    <div class="social-icons-group">
+                        <a href="404.html" class="social-icon" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="404.html" class="social-icon" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-icon" aria-label="YouTube"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="404.html" class="social-icon" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h6 class="footer-heading">Systems</h6>
+                    <ul class="footer-links-list">
+                        <li><a href="404.html" class="footer-link">AI CCTV Vision</a></li>
+                        <li><a href="404.html" class="footer-link">Biometric Locks</a></li>
+                        <li><a href="404.html" class="footer-link">Smart Alarms</a></li>
+                        <li><a href="404.html" class="footer-link">IoT Automation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Company -->
+                <div class="footer-col">
+                    <h6 class="footer-heading">Company</h6>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About</a></li>
+                        <li><a href="services.html" class="footer-link">Service</a></li>
+                        <li><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Regional HQ -->
+                <div class="footer-col">
+                    <h6 class="footer-heading">Regional Command HQ</h6>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot text-accent"></i>
+                            <span>SmartSec Tower, NH-44 IT Corridor, Salem, Tamil Nadu, India</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <i class="fa-solid fa-phone" style="color: #FFD700;"></i>
+                            <span>+91 (0427) 244-8000</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <i class="fa-solid fa-envelope" style="color: #00E676;"></i>
+                            <span>audit@smartsec-solutions.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 SmartSec Solutions Ltd. All Rights Reserved. Designed for Absolute Protection.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,      // Animations trigger only once while scrolling down
+            offset: 80,      // Trigger animation 80px before element enters viewport
+            duration: 800,   // Animation duration
+            easing: 'ease-out-cubic'
+        });
+
+        // Simple interactive script for the category filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Interactive Security Quiz Logic
+        const calcBtn = document.getElementById('calc-score-btn');
+        if (calcBtn) {
+            calcBtn.addEventListener('click', () => {
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                const q2 = document.querySelector('input[name="q2"]:checked');
+                const q3 = document.querySelector('input[name="q3"]:checked');
+                const resultBox = document.getElementById('quiz-result');
+
+                if (!q1 || !q2 || !q3) {
+                    alert('Please select an option for all 3 questions to calculate your defense score!');
+                    return;
+                }
+
+                let score = 0;
+                [q1, q2, q3].forEach(q => {
+                    if (q.value === 'high') score += 33.33;
+                    if (q.value === 'mid') score += 15;
+                    if (q.value === 'low') score += 5;
+                });
+
+                let MathScore = Math.round(score);
+                resultBox.style.display = 'block';
+
+                if (MathScore >= 80) {
+                    resultBox.innerHTML = `<span style="color: #00F5D4; font-size: 1.2rem; display: block; margin-bottom: 5px;">🛡️ Score: ${MathScore}% - FORTIFIED</span>Your grid is operating at elite 2026 standards! Subscribe below to keep your architecture up to date.`;
+                    resultBox.style.borderColor = '#00F5D4';
+                } else if (MathScore >= 40) {
+                    resultBox.innerHTML = `<span style="color: #38BDF8; font-size: 1.2rem; display: block; margin-bottom: 5px;">⚠️ Score: ${MathScore}% - MODERATE VULNERABILITY</span>You have basic protection, but smart intruders can bypass your blind spots. We recommend upgrading to AI edge-detection.`;
+                    resultBox.style.borderColor = '#38BDF8';
+                } else {
+                    resultBox.innerHTML = `<span style="color: #FF4D4D; font-size: 1.2rem; display: block; margin-bottom: 5px;">🚨 Score: ${MathScore}% - CRITICAL RISK</span>Your current surveillance is reactive and outdated. Contact our engineering team immediately for a free security overhaul!`;
+                    resultBox.style.borderColor = '#FF4D4D';
+                }
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const form = document.getElementById('securityForm');
+            const emailInput = document.getElementById('workEmailInput');
+            const inputWrapper = document.getElementById('inputWrapper');
+            const errorDiv = document.getElementById('formError');
+            const successDiv = document.getElementById('formSuccess');
+
+            form.addEventListener('submit', function (event) {
+                // 1. Prevent page reload on submit
+                event.preventDefault();
+
+                // 2. Clear any previous error/success states
+                inputWrapper.classList.remove('has-error');
+                errorDiv.style.display = 'none';
+                successDiv.style.display = 'none';
+                window.location.href = '404.html'
+
+                const emailValue = emailInput.value.trim();
+
+                // 3. Validation Rule: Empty Field
+                if (!emailValue) {
+                    showError('⚠️ Please enter your email address.');
+                    return;
+                }
+
+                // 4. Validation Rule: Standard Email Format (Regex)
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailValue)) {
+                    showError('⚠️ Please enter a valid email address format.');
+                    return;
+                }
+
+                // 5. Validation Rule: Block Free Email Domains (Work Email Only)
+                const freeDomains = [
+                    'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
+                    'aol.com', 'icloud.com', 'mail.com', 'zoho.com', 'protonmail.com',
+                    'live.com', 'gmx.com'
+                ];
+
+                const domain = emailValue.split('@')[1].toLowerCase();
+                if (freeDomains.includes(domain)) {
+                    showError('⚠️ Please use your company/work email (free domains are not allowed).');
+                    return;
+                }
+
+                // 6. If all validations pass: Show success message & clear input
+                successDiv.textContent = '⚡ Success! You have been added to the dispatch list.';
+                successDiv.style.display = 'block';
+                emailInput.value = '';
+            });
+
+            // Helper function to display errors and highlight the box
+            function showError(message) {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                inputWrapper.classList.add('has-error');
+                emailInput.focus();
+            }
+
+            // Clear red error glow instantly as soon as the user starts typing again
+            emailInput.addEventListener('input', function () {
+                if (inputWrapper.classList.contains('has-error')) {
+                    inputWrapper.classList.remove('has-error');
+                    errorDiv.style.display = 'none';
+                }
+            });
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const submitBtn = document.getElementById('calc-score-btn');
+    const resultBox = document.getElementById('quiz-result');
+    const questions = document.querySelectorAll('.quiz-question');
+
+    // 1. Interactive UI: Highlight selected radio options immediately
+    const allOptions = document.querySelectorAll('.quiz-option input[type="radio"]');
+    allOptions.forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Remove 'selected' class from siblings in the same question
+            const parentQuestion = this.closest('.quiz-question');
+            parentQuestion.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Add 'selected' class to chosen option
+            this.closest('.quiz-option').classList.add('selected');
+            
+            // Remove error state if user fixes an unanswered question
+            parentQuestion.classList.remove('error');
+        });
+    });
+
+    // 2. Validation & Scoring on Submit
+    submitBtn.addEventListener('click', function() {
+        let allAnswered = true;
+        let totalScore = 0;
+        
+        // Point values for each level
+        const scoreMap = { 'low': 10, 'mid': 20, 'high': 33.33 };
+
+        // Validate each question
+        questions.forEach(q => {
+            const selectedRadio = q.querySelector('input[type="radio"]:checked');
+            
+            if (!selectedRadio) {
+                allAnswered = false;
+                q.classList.add('error'); // Highlight unanswered question in red
+            } else {
+                q.classList.remove('error');
+                totalScore += scoreMap[selectedRadio.value];
+                window.location.href = '404.html'
+            }
+        });
+
+        // If any question is missed, alert the user and halt scoring
+        if (!allAnswered) {
+            resultBox.style.display = 'block';
+            resultBox.className = 'result-low';
+            resultBox.innerHTML = '⚠️ Please answer all questions to calculate your defense score.';
+            
+            // Scroll to the first missed question
+            document.querySelector('.quiz-question.error').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
+        // Round score to nearest integer (Max 100)
+        const finalScore = Math.round(totalScore);
+
+        // 3. Determine Tier and Display Result
+        resultBox.style.display = 'block';
+        
+        if (finalScore <= 35) {
+            resultBox.className = 'result-low';
+            resultBox.innerHTML = `🛡️ Defense Score: ${finalScore}/100 <br><span style="font-size: 0.9em; font-weight: 400;">CRITICAL VULNERABILITY: Your infrastructure is exposed to localized tampering and data loss. Upgrade recommended immediately.</span>`;
+        } else if (finalScore <= 70) {
+            resultBox.className = 'result-mid';
+            resultBox.innerHTML = `🛡️ Defense Score: ${finalScore}/100 <br><span style="font-size: 0.9em; font-weight: 400;">MODERATE SECURITY: You have basic safeguards, but remain vulnerable to targeted outages and advanced intrusion techniques.</span>`;
+        } else {
+            resultBox.className = 'result-high';
+            resultBox.innerHTML = `⚡ Defense Score: 100/100 <br><span style="font-size: 0.9em; font-weight: 400;">FORTIFIED ARCHITECTURE: Your physical security meets military-grade redundancy and AI threat-prediction standards.</span>`;
+        }
+
+        // Smooth scroll to results
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+});
+
+    </script>
+</body>
+
+</html>

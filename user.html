@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SmartSec | Client Dashboard</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chart.js for Activity Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #FFB703;      /* Custom Warm Amber Gold */
+            --primary-light: rgba(255, 183, 3, 0.15);
+            --primary-dark: #d99b00;
+            --accent-blue: #00F5D4;
+            --danger-red: #FF4D4D;
+            --success-green: #00E676;
+            
+            --bg-color: #040811;           /* Deep Cyber Navy Background */
+            --card-bg: #0b1322;            /* Dark Glass Card Surface */
+            --border-color: rgba(255, 255, 255, 0.08);
+            
+            --text-main: #F8FAFC;          /* Bright White Text */
+            --text-muted: #94A3B8;         /* Muted Slate Grey */
+
+            --sidebar-bg: #070d18;
+            --sidebar-hover: #111e33;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            selection-background-color: var(--primary-color);
+            selection-color: var(--bg-color);
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* --- SIDEBAR NAVIGATION --- */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1000;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 8, 17, 0.8);
+            z-index: 999;
+            backdrop-filter: blur(4px);
+        }
+
+        .sidebar-overlay.active { display: block; }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-da {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+
+        .logo-da i {
+            color: var(--primary-color);
+            font-size: 24px;
+            filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.4));
+        }
+
+        .close-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 24px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            cursor: pointer;
+        }
+
+        .menu-link i {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .menu-link:hover {
+            background-color: var(--sidebar-hover);
+            color: var(--text-main);
+        }
+
+        .menu-link.active {
+            background: linear-gradient(90deg, rgba(255, 183, 3, 0.15), transparent);
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .sidebar-bottom {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .logout-btn {
+            color: var(--danger-red);
+            border-radius: 8px;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255, 77, 77, 0.1);
+            color: var(--danger-red);
+            border-left: 4px solid var(--danger-red);
+        }
+
+        /* --- MAIN CONTENT AREA --- */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 260px;
+            min-height: 100vh;
+            width: calc(100% - 260px);
+        }
+
+        .top-header {
+            background-color: rgba(11, 19, 34, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 998;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border: 1px solid rgba(255, 183, 3, 0.3);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .greeting h1 {
+            font-size: 20px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .welcome-name {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: right;
+        }
+
+        .user-role {
+            font-size: 11px;
+            color: var(--success-green);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        .user-email {
+            font-size: 13px;
+            color: var(--text-main);
+            font-weight: 700;
+            display: block;
+        }
+
+        .user-avatar i {
+            font-size: 35px;
+            color: var(--primary-color);
+        }
+
+        /* --- VIEW SECTIONS --- */
+        .view-section {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.4s ease-in-out;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .view-section.active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- STATS GRID --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(255, 183, 3, 0.1);
+        }
+
+        .stat-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .stat-details h3 {
+            font-size: 22px;
+            margin-bottom: 4px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .stat-details p {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENT BOXES --- */
+        .content-box {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        /* --- CAMERA GRID --- */
+        .camera-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .camera-item {
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(4, 8, 17, 0.6);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .camera-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .camera-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(4, 8, 17, 0.8);
+            border: 1px solid var(--danger-red);
+            color: var(--danger-red);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--danger-red);
+            border-radius: 50%;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0.2; }
+        }
+
+        .camera-info { padding: 16px; }
+
+        .camera-info h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .btn-stream {
+            background: rgba(0, 245, 212, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            padding: 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 12px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+        .btn-stream:hover { background: var(--accent-blue); color: var(--bg-color); }
+
+        /* --- INTERACTIVE FORMS --- */
+        .input-group { margin-bottom: 20px; }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: rgba(4, 8, 17, 0.8);
+            color: var(--text-main);
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .input-group select option { background: var(--card-bg); color: #fff; }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 183, 3, 0.2);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .error-msg {
+            color: var(--danger-red);
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .input-error {
+            border-color: var(--danger-red) !important;
+            box-shadow: 0 0 10px rgba(255, 77, 77, 0.2) !important;
+        }
+
+        .success-msg {
+            color: #00E676;
+            background: rgba(0, 230, 118, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            display: none;
+            text-align: center;
+            border: 1px dashed #00E676;
+        }
+
+        /* --- BUTTONS --- */
+        .main-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--bg-color);
+            padding: 14px 24px;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 183, 3, 0.3);
+            margin-top: 10px;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 183, 3, 0.6);
+            background: linear-gradient(135deg, #ffd15c, var(--primary-color));
+        }
+
+        /* --- 100% MOBILE RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; width: 100%; }
+            .menu-toggle, .close-btn { display: block; }
+            .two-col-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 576px) {
+            .top-header { padding: 15px 20px; }
+            .view-section { padding: 15px; gap: 20px; }
+            .user-info { display: none; }
+            .greeting h1 { font-size: 18px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .content-box { padding: 20px; }
+            .camera-grid { grid-template-columns: 1fr; }
+            .activityChart{
+                width: 100%;
+            }
+        }
+
+          .logo-img {
+            width: 150px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo-da {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-da i {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Overlay for Mobile Sidebar -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-header">
+                     <div class="logo-da">
+                        <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
+                    </div>
+                    <button class="close-btn" id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li><a class="menu-link active" data-target="overview-view">
+                        <i class="fa-solid fa-house-chimney"></i> Property Overview
+                    </a></li>
+                    <li><a class="menu-link" data-target="cameras-view">
+                        <i class="fa-solid fa-video"></i> My Camera Feeds
+                    </a></li>
+                    <li><a class="menu-link" data-target="support-view">
+                        <i class="fa-solid fa-headset"></i> Request Support
+                    </a></li>
+                    <li><a class="menu-link" data-target="profile-view">
+                        <i class="fa-solid fa-user-gear"></i> Billing & Profile
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-bottom">
+                <a href="login.html" class="menu-link logout-btn">
+                    <i class="fa-solid fa-power-off"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="openSidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="greeting">
+                        <h1 id="page-title">Property Overview</h1>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-role">Premium Client</span>
+                            <span class="user-email" id="userEmailDisplay">client@property.com</span>
+                        </div>
+                        <div class="user-avatar">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- VIEW 1: PROPERTY OVERVIEW -->
+            <div id="overview-view" class="view-section active">
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(0, 230, 118, 0.15); color: var(--success-green);">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3 style="color: var(--success-green); font-size: 20px;">SYSTEM ARMED</h3>
+                            <p>Perimeter Secure</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(0, 245, 212, 0.15); color: var(--accent-blue);">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>04</h3>
+                            <p>Cameras Online</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(255, 77, 77, 0.15); color: var(--danger-red);">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>00</h3>
+                            <p>Unread Alerts</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="two-col-grid">
+                    <section class="content-box">
+                        <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Motion Activity (Last 7 Days)</h2>
+                        <div class="chart-container">
+                            <canvas id="activityChart" class="activityChart"></canvas>
+                        </div>
+                    </section>
+
+                    <section class="content-box">
+                        <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Events</h2>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border-left: 3px solid var(--accent-blue);">
+                                <strong style="display: block; font-size: 14px; margin-bottom: 4px;">System Armed via Mobile App</strong>
+                                <span style="font-size: 12px; color: var(--text-muted);">Today at 08:30 AM</span>
+                            </div>
+                            <div style="padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border-left: 3px solid var(--primary-color);">
+                                <strong style="display: block; font-size: 14px; margin-bottom: 4px;">Motion Detected: Front Porch</strong>
+                                <span style="font-size: 12px; color: var(--text-muted);">Yesterday at 11:45 PM (Delivery Verified)</span>
+                            </div>
+                            <div style="padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border-left: 3px solid var(--success-green);">
+                                <strong style="display: block; font-size: 14px; margin-bottom: 4px;">System Disarmed (Pin entered)</strong>
+                                <span style="font-size: 12px; color: var(--text-muted);">Yesterday at 06:15 PM</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- VIEW 2: MY CAMERAS -->
+            <div id="cameras-view" class="view-section">
+                <section class="content-box">
+                    <h2 class="section-title"><i class="fa-solid fa-video"></i> Live Property Feeds</h2>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">All feeds are end-to-end encrypted and streamed via AWS GovCloud.</p>
+                    
+                    <div class="camera-grid">
+                        <!-- Camera 1 -->
+                        <div class="camera-item">
+                            <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+                            <img src="asset/se2.webp" alt="Front Door" class="camera-img">
+                            <div class="camera-info">
+                                <h4>Front Door / Driveway</h4>
+                                <a href="404.html" class="btn-stream"><i class="fa-solid fa-expand"></i> Enter Fullscreen</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Camera 2 -->
+                        <div class="camera-item">
+                            <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+                            <img src="asset/se4.webp" alt="Backyard" class="camera-img">
+                            <div class="camera-info">
+                                <h4>Backyard Patio</h4>
+                                <a href="404.html" class="btn-stream"><i class="fa-solid fa-expand"></i> Enter Fullscreen</a>
+                            </div>
+                        </div>
+
+                        <!-- Camera 3 -->
+                        <div class="camera-item">
+                            <div class="live-badge" style="background: rgba(255, 183, 3, 0.2); color: var(--primary-color); border-color: var(--primary-color);">MOTION DETECTED</div>
+                            <img src="asset/sr1.webp" alt="Living Room" class="camera-img">
+                            <div class="camera-info">
+                                <h4>Interior: Living Room</h4>
+                                <a href="404.html" class="btn-stream"><i class="fa-solid fa-expand"></i> Enter Fullscreen</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- VIEW 3: REQUEST SUPPORT (WITH VALIDATION) -->
+            <div id="support-view" class="view-section">
+                <section class="content-box" style="max-width: 800px; margin: 0 auto;">
+                    <h2 class="section-title"><i class="fa-solid fa-headset"></i> Request Technician Support</h2>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Experiencing hardware issues or need a system upgrade? Open a ticket below.</p>
+                    
+                    <form id="supportForm" novalidate>
+                        <div id="formSuccess" class="success-msg">
+                            <i class="fa-solid fa-circle-check"></i> Support Ticket Submitted Successfully! A technician will contact you shortly.
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Issue Subject *</label>
+                            <input type="text" id="subjectInput" placeholder="Briefly describe the issue..." required>
+                            <div class="error-msg" id="subjectError">Subject must be at least 5 characters.</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Hardware Category *</label>
+                            <select id="categorySelect" required>
+                                <option value="" selected disabled>-- Select Hardware Type --</option>
+                                <option value="camera">CCTV / Camera Offline</option>
+                                <option value="sensor">Motion Sensor False Alarm</option>
+                                <option value="panel">Control Panel Malfunction</option>
+                                <option value="billing">Billing / Account Query</option>
+                            </select>
+                            <div class="error-msg" id="categoryError">Please select a category.</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Detailed Description *</label>
+                            <textarea id="descInput" rows="4" placeholder="Provide as much detail as possible so our technicians can prepare..." required></textarea>
+                            <div class="error-msg" id="descError">Description must be at least 20 characters.</div>
+                        </div>
+
+                        <button type="submit" class="main-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Ticket ⚡
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- VIEW 4: PROFILE & BILLING -->
+            <div id="profile-view" class="view-section">
+                <section class="content-box" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background: rgba(255, 183, 3, 0.1); border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--primary-color); margin: 0 auto 20px;">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 style="font-size: 24px; margin-bottom: 5px;">Premium Client</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">client@property.com</p>
+                    
+                    <div style="background: rgba(4, 8, 17, 0.6); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: left; margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; color: var(--accent-blue);">Current Plan: AI Elite Protection</h4>
+                        <p style="font-size: 14px; color: var(--text-muted); display: flex; justify-content: space-between;"><span>Next Billing Date:</span> <strong style="color: #fff;">Aug 15, 2026</strong></p>
+                        <p style="font-size: 14px; color: var(--text-muted); display: flex; justify-content: space-between; margin-top: 8px;"><span>Amount:</span> <strong style="color: #fff;">$149.99 / mo</strong></p>
+                    </div>
+
+                    <a href="404.html" class="main-btn" style="background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); box-shadow: none;">Manage Payment Methods</a>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Retrieve Logged-in User (Mocking client name)
+        const emailValue = localStorage.getItem("UserMail");
+        const email = emailValue || "client@property.com";
+        const extractedName = email.split("@")[0];
+        const formattedName = extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+
+        document.getElementById("userEmailDisplay").textContent = email;
+        const pageTitle = document.getElementById("page-title");
+
+        // 2. Mobile Sidebar Slide Drawer
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        function openSidebar() { sidebar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeSidebar() { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = 'auto'; }
+
+        openSidebarBtn.addEventListener('click', openSidebar);
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        // 3. Tab Navigation & View Switching
+        const menuLinks = document.querySelectorAll('.sidebar-menu .menu-link');
+        const views = document.querySelectorAll('.view-section');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                if (this.classList.contains('active')) return;
+
+                menuLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                views.forEach(v => v.classList.remove('active'));
+
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+
+                let titleText = this.innerText.trim();
+                pageTitle.innerHTML = titleText;
+
+                if (window.innerWidth <= 992) { closeSidebar(); }
+            });
+        });
+
+        // 4. Chart.js - Motion Activity Analytics
+        const ctx = document.getElementById('activityChart').getContext('2d');
+        const activityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Motion Events',
+                    data: [12, 19, 8, 15, 22, 5, 9],
+                    backgroundColor: '#FFB703',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#94A3B8' }
+                    },
+                    x: { 
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8' }
+                    }
+                }
+            }
+        });
+
+        // 5. Custom Form Validation for Support Ticket
+        document.getElementById('supportForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const subjectInput = document.getElementById('subjectInput');
+            const categorySelect = document.getElementById('categorySelect');
+            const descInput = document.getElementById('descInput');
+
+            const subjectError = document.getElementById('subjectError');
+            const categoryError = document.getElementById('categoryError');
+            const descError = document.getElementById('descError');
+            const formSuccess = document.getElementById('formSuccess');
+
+            let isValid = true;
+
+            // Reset errors
+            subjectInput.classList.remove('input-error');
+            categorySelect.classList.remove('input-error');
+            descInput.classList.remove('input-error');
+            subjectError.style.display = 'none';
+            categoryError.style.display = 'none';
+            descError.style.display = 'none';
+            formSuccess.style.display = 'none';
+
+            // Validate Subject
+            if (subjectInput.value.trim().length < 5) {
+                subjectInput.classList.add('input-error');
+                subjectError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Hardware Category Select
+            if (categorySelect.value === '') {
+                categorySelect.classList.add('input-error');
+                categoryError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Description (Min 20 chars)
+            if (descInput.value.trim().length < 20) {
+                descInput.classList.add('input-error');
+                descError.style.display = 'block';
+                isValid = false;
+            }
+
+            // If valid, display success banner and reset!
+            if (isValid) {
+                formSuccess.style.display = 'block';
+                setTimeout(() => {
+                    this.reset();
+                    formSuccess.style.display = 'none';
+                    window.location.href = '404.html'
+                    // alert('Ticket Submitted! Tech Support will email you shortly.');
+                }, 500);
+            }
+        });
+
+        // Remove error outline instantly as user types/selects
+        const inputs = document.querySelectorAll('#subjectInput, #categorySelect, #descInput');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('input-error');
+                const err = input.parentElement.querySelector('.error-msg');
+                if (err) err.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

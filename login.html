@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSec Command Grid | Login</title>
+    
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+    <div class="cyber-grid"></div>
+ 
+    <div class="floating floating-1"><i class="fa-solid fa-shield-halved"></i></div>
+    <div class="floating floating-2"><i class="fa-solid fa-video"></i></div>
+    <div class="floating floating-3"><i class="fa-solid fa-fingerprint"></i></div>
+
+    <a href="index.html" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Home</span>
+    </a>
+
+    <div class="auth-wrapper">
+
+        <div class="auth-left">
+            <span class="security-badge">
+                <i class="fa-solid fa-satellite-dish"></i>
+                AI DEFENSE GRID ACTIVE
+            </span>
+            <h1>
+                Access Your <br>
+                <span>Security Shield</span>
+            </h1>
+            <p>
+                Monitor your physical perimeters, manage automated AI surveillance feeds, and control cloud-integrated access grids from one centralized tactical portal.
+            </p>
+
+            <div class="news-stats">
+                <div class="stat">
+                    <h2>99.9%</h2>
+                    <span>Threat Defense</span>
+                </div>
+                <div class="stat">
+                    <h2>&lt; 0.4s</h2>
+                    <span>AI Latency</span>
+                </div>
+                <div class="stat">
+                    <h2>24/7</h2>
+                    <span>Active Patrol</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-card">
+            
+           <div class="logo">
+                        <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
+                    </div>
+
+            <div class="tab-buttons">
+                <button class="active" id="loginBtn">Login</button>
+                <button id="signupBtn">Sign Up</button>
+            </div>
+
+            <form id="loginForm">
+                <h2>Command Access</h2>
+                <p class="subtitle">Enter your security credentials to access the grid.</p>
+
+                <select id="loginRole">
+                    
+                    <option value="admin"> Admin</option>
+                   
+                    <option value="user"> Client</option>
+                </select>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Work Email Address">
+                </div>
+                <span class="error-msg" id="loginEmailError"></span>
+
+                <div class="password-box">
+                    <i class="fa-solid fa-lock lock-icon"></i>
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <span class="error-msg" id="loginPasswordError"></span>
+
+                <div class="options">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember Device
+                    </label>
+                    <a href="404.html">Forgot Password?</a>
+                </div>
+
+                <button class="main-btn" type="submit">Login </button>
+
+                <div class="divider">OR BIOMETRIC ACCESS WITH</div>
+
+                <div class="social-icons">
+                    <a href="#google" title="Google Workspace"><i class="fab fa-google"></i></a>
+                    <a href="#apple" title="Apple ID"><i class="fab fa-apple"></i></a>
+                    <a href="#microsoft" title="Microsoft Azure AD"><i class="fab fa-microsoft"></i></a>
+                </div>
+
+                <p class="bottom-text">
+                    Don't have clearance? <span id="showSignup">Request Account</span>
+                </p>
+            </form>
+
+            <form id="signupForm" class="hidden">
+                <h2>Request Clearance</h2>
+                <p class="subtitle">Deploy your automated defense account today.</p>
+
+                <select id="signupRole">
+                    
+                    <option value="admin"> Admin</option>
+                    
+                    <option value="user"> Client</option>
+                </select>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="signupName" placeholder="Full Name">
+                </div>
+                <span class="error-msg" id="signupNameError"></span>
+
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="signupEmail" placeholder="Work Email Address">
+                </div>
+                <span class="error-msg" id="signupEmailError"></span>
+
+                <div class="password-box">
+                    <i class="fa-solid fa-lock lock-icon"></i>
+                    <input type="password" id="signupPassword" class="password" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <span class="error-msg" id="signupPasswordError"></span>
+
+                <div class="password-box">
+                    <i class="fa-solid fa-lock lock-icon"></i>
+                    <input type="password" id="signupConfirmPassword" class="password" placeholder="Confirm Password">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <span class="error-msg" id="signupConfirmError"></span>
+
+                <button type="submit" class="main-btn">Signup </button>
+
+                <div class="divider">OR BIOMETRIC ACCESS WITH</div>
+
+                <div class="social-icons">
+                    <a href="404.html" title="Google Workspace"><i class="fab fa-google"></i></a>
+                    <a href="404.html" title="Apple ID"><i class="fab fa-apple"></i></a>
+                    <a href="404.html" title="Microsoft Azure AD"><i class="fab fa-microsoft"></i></a>
+                </div>
+
+                <p class="bottom-text">
+                    Already authenticated? <span id="showLogin">Login Here</span>
+                </p>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

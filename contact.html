@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <!-- Google Font: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5.3 CSS (MANDATORY FOR NAVBAR TO WORK) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="smart.css">
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container">
+
+            <a href="index.html" class="logo-container">
+                <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
+            </a>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="navbar-toggler custom-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars text-info fs-4"></i>
+            </button>
+
+            <!-- Horizontal Menu Links & Login -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" href="contact.html">Contact</a>
+                    </li>
+                    <!-- Login Button -->
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn btn-login px-4 py-2 text-center d-block">
+                            <i class="fa-solid fa-lock me-2"></i>Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="hero-section">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+
+        <div class="container" style="position: relative; z-index: 1;" data-aos="zoom-out" data-aos-duration="1000">
+            <span class="text-accent"
+                style="font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 12px;">
+                📡 24/7 Global Dispatch & Support
+            </span>
+            <h1 class="hero-title">
+                Get In Touch With Our <br>
+                <span class="text-accent">Security Architects</span>
+            </h1>
+            <p class="hero-lead">
+                Whether you need an emergency perimeter overhaul, a custom AI surveillance blueprint, or technical
+                support, our engineers are standing by.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: DIRECT COMMUNICATION CHANNELS (3 CARDS) -->
+    <section class="section-padding bg-alternate" style="padding-top: 20px;">
+        <div class="container">
+            <div class="grid-3">
+                <!-- Channel 1 -->
+                <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <span class="contact-icon">📞</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Engineering Hotline</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+                        Direct access to senior security analysts for urgent hardware consultations and quotes.
+                    </p>
+                    <a href="404.html" class="contact-link">+1 (800) 555-0199 →</a>
+                </div>
+
+                <!-- Channel 2 -->
+                <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <span class="contact-icon">✉️</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Tactical Dispatch Desk</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+                        Send us your site blueprints or RFP documents for an encrypted 24-hour analysis.
+                    </p>
+                    <a href="404.html" class="contact-link">deploy@smartsecurity.tech →</a>
+                </div>
+
+                <!-- Channel 3 -->
+                <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <span class="contact-icon">🌐</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Global Headquarters</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+                        Cyber-Physical Defense Hub, 404 Sentinel Way, Silicon Valley, California, USA.
+                    </p>
+                    <a href="404.html" class="contact-link">View Command Map →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE DEPLOYMENT FORM (WITH CUSTOM VALIDATION) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+
+                <!-- Left Column: Form Intro -->
+                <div data-aos="fade-up">
+                    <span class="text-accent"
+                        style="font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">🛡️ Request Free
+                        Assessment</span>
+                    <h2 class="section-heading" style="margin-top: 10px;">Architect Your Custom <br><span
+                            class="text-accent">Defense Blueprint</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        Fill out our secure deployment form. An AI surveillance architect will review your site
+                        requirements and contact you within 2 business hours.
+                    </p>
+                    <ul
+                        style="color: var(--text-muted); font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
+                        <li><strong style="color: #fff;">✓ 100% Confidentiality:</strong> All submitted data is
+                            protected under 256-bit encryption.</li>
+                        <li><strong style="color: #fff;">✓ Zero Obligation:</strong> Receive a custom hardware topology
+                            and cost quote for free.</li>
+                        <li><strong style="color: #fff;">✓ Custom SLA Matching:</strong> Tailored Service Level
+                            Agreements for enterprise networks.</li>
+                    </ul>
+                    <div
+                        style="padding: 20px; background: rgba(0, 245, 212, 0.05); border-radius: 12px; border: 1px dashed var(--accent-teal);">
+                        <strong style="color: #fff; display: block; margin-bottom: 4px;">⚡ 2026 Average Response
+                            Time:</strong>
+                        <span style="color: var(--accent-teal); font-weight: 700;">&lt; 45 Minutes</span> during
+                        standard global operating hours.
+                    </div>
+                </div>
+
+                <!-- Right Column: Form with Validation -->
+                <div data-aos="fade-up">
+                    <div class="glass-card" style="border-color: var(--border-glow);">
+
+                        <form id="contactForm" novalidate>
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label class="form-label">Full Name *</label>
+                                <input type="text" id="fullName" class="form-input" placeholder="Johnathan Doe">
+                                <span class="error-msg" id="nameError">Please enter your full name.</span>
+                            </div>
+
+                            <!-- Email Address -->
+                            <div class="form-group">
+                                <label class="form-label">Work Email Address *</label>
+                                <input type="email" id="email" class="form-input" placeholder="j.doe@company.com">
+                                <span class="error-msg" id="emailError">Please enter a valid work email address.</span>
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div class="form-group">
+                                <label class="form-label">Phone Number (With Country Code) *</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 019-2834">
+                                <span class="error-msg" id="phoneError">Please enter a valid 10-digit phone
+                                    number.</span>
+                            </div>
+
+                            <!-- Project Type Dropdown -->
+                            <div class="form-group">
+                                <label class="form-label">Security Scale / Project Type *</label>
+                                <select id="projectType" class="form-select">
+                                    <option value="">-- Select Deployment Scope --</option>
+                                    <option value="commercial">Commercial / Retail Perimeter</option>
+                                    <option value="industrial">Industrial Logistics & Warehouse</option>
+                                    <option value="enterprise">Enterprise Cloud & Server Vault</option>
+                                    <option value="residential">Luxury Residential Grid</option>
+                                    <option value="other">Other Tactical Requirement</option>
+                                </select>
+                                <span class="error-msg" id="projectError">Please select a project deployment
+                                    scope.</span>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="form-group">
+                                <label class="form-label">Project Details / Vulnerability Concerns *</label>
+                                <textarea id="message" class="form-textarea" rows="4"
+                                    placeholder="Tell us about your property size, existing CCTV setup, or urgent blind spot concerns..."></textarea>
+                                <span class="error-msg" id="messageError">Please provide at least 20 characters
+                                    describing your project.</span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn-cyber" style="width: 100%; margin-top: 10px;">
+                                Deploy Assessment Request 🛡️
+                            </button>
+                        </form>
+
+                        <!-- Success Message Box (Hidden by default) -->
+                        <div id="form-success">
+                            <span style="font-size: 3rem; display: block; margin-bottom: 10px;">✅</span>
+                            <h3 style="color: #00E676; margin-bottom: 8px;">Transmission Successful!</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                Your tactical requirements have been encrypted and routed to our senior security
+                                architects. Expect a dispatch call shortly.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: EMERGENCY DISPATCH BANNER (SPECIALIZED SECTION) -->
+    <section class="section-padding bg-alternate">
+        <div class="container" data-aos="zoom-in">
+            <div class="emergency-banner">
+                <div>
+                    <span
+                        style="color: #FF4D4D; font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; display: block; margin-bottom: 8px;">
+                        🚨 ACTIVE BREACH OR SYSTEM SABOTAGE?
+                    </span>
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 6px;">
+                        24/7 Rapid Tactical Response Desk
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: 0; max-width: 600px;">
+                        If your existing surveillance grid is currently under attack or experiencing mysterious offline
+                        failures, trigger an emergency dispatch immediately.
+                    </p>
+                </div>
+                <div>
+                    <a href="404.html"
+                        style="background: linear-gradient(135deg, #FF4D4D, #CC0000); box-shadow: 0 0 25px rgba(255, 77, 77, 0.5); padding: 16px 36px;">
+                        ⚡ Trigger Emergency SOS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: COMMAND CENTER MAP PLACEHOLDER -->
+    <section id="map" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-heading" data-aos="fade-up">Our Global Command <span
+                    class="text-accent">Headquarters</span></h2>
+            <p class="section-subtext" data-aos="fade-up" data-aos-delay="100">Monitoring over 5,000+ autonomous AI
+                perimeters from Silicon Valley to Tokyo.</p>
+
+            <div class="map-container" data-aos="zoom-in" data-aos-duration="1000">
+                <!-- Cyber Styled Map Overlay Text -->
+                <div style="z-index: 2; text-align: center; padding: 20px;">
+                    <span
+                        style="font-size: 3rem; display: block; margin-bottom: 10px; animation: float 3s infinite ease-in-out;">🛰️</span>
+                    <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 8px;">
+                        LIVE RADAR: SILICON VALLEY COMMAND HUB
+                    </h3>
+                    <p style="color: var(--accent-teal); font-weight: 600; font-size: 0.9rem; margin-bottom: 15px;">
+                        37.3861° N, 122.0839° W • GRID STATUS: ONLINE & SECURE
+                    </p>
+                    <span
+                        style="display: inline-block; padding: 6px 16px; background: rgba(0, 245, 212, 0.1); border: 1px solid var(--accent-teal); border-radius: 20px; font-size: 0.8rem; color: #fff;">
+                        🔒 Military-Grade Facility (Restricted Visitor Access By Appointment Only)
+                    </span>
+                </div>
+                <!-- Background Grid overlay simulating digital radar map -->
+                <div
+                    style="position: absolute; top:0; left:0; width:100%; height:100%; background-image: radial-gradient(rgba(0, 245, 212, 0.15) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.7;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: SUPPORT SLA & FAQ GUARANTEES -->
+    <section class="section-padding bg-alternate">
+        <div class="container text-center">
+            <h2 class="section-heading" data-aos="fade-up">Why Rely On Our <span class="text-accent">Support
+                    Grid?</span></h2>
+            <p class="section-subtext" data-aos="fade-up" data-aos-delay="100">Unshakable Service Level Agreements built
+                for zero downtime.</p>
+
+            <div class="grid-3" style="text-align: left;">
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <span style="font-size: 2rem; margin-bottom: 12px; display: block;">⚡</span>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Sub-Second Dispatch</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Our monitoring agents verify alarms within
+                        30 seconds to prevent false police dispatches.</p>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <span style="font-size: 2rem; margin-bottom: 12px; display: block;">🛠️</span>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">24-Hour Hardware Swap</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">If a camera or LiDAR sensor fails, our field
+                        engineers replace it on-site within 24 hours.</p>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <span style="font-size: 2rem; margin-bottom: 12px; display: block;">🔐</span>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 8px;">Dedicated Account CTO</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Enterprise tier accounts receive a dedicated
+                        cybersecurity architect on standby 365 days a year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: CALL TO ACTION -->
+    <section class="section-padding text-center" style="border-bottom: none;">
+        <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div class="glass-card"
+                style="padding: 60px 20px; border-color: rgba(0, 245, 212, 0.3); background: linear-gradient(180deg, var(--bg-card), rgba(0, 245, 212, 0.05));">
+                <span class="text-accent"
+                    style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">Your
+                    Safety Is Non-Negotiable</span>
+                <h2 class="section-heading">Ready to Architect Your <br><span class="text-accent">Security
+                        Ecosystem?</span></h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem;">
+                    Don't leave your perimeter defenseless. Connect with our tactical engineering team right now.
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="404.html" class="btn-cyber" style="padding: 16px 40px; font-size: 1.1rem;">⚡ Request
+                        Assessment</a>
+                    <a href="404.html" class="btn-ghost" style="padding: 16px 40px; font-size: 1.1rem;">📞 Call
+                        Hotline</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="custom-footer" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+    <div class="container">
+        
+        <div class="footer-grid">
+            
+            <!-- Col 1: Brand Info -->
+            <div class="footer-col">
+               <a href="index.html" class="logo-container">
+                <img src="./asset/yellow_logo (2).webp" alt="Company Logo" class="logo-img">
+            </a>
+                <p class="footer-desc">
+                    Next-generation cyber & physical surveillance architectures engineered for absolute zero-breach security.
+                </p>
+                <div class="social-icons-group">
+                    <a href="404.html" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="404.html" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="404.html" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="404.html" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Quick Links -->
+            <div class="footer-col">
+                <h6 class="footer-heading">Systems</h6>
+                <ul class="footer-links-list">
+                    <li><a href="404.html" class="footer-link">AI CCTV Vision</a></li>
+                    <li><a href="404.html" class="footer-link">Biometric Locks</a></li>
+                    <li><a href="404.html" class="footer-link">Smart Alarms</a></li>
+                    <li><a href="404.html" class="footer-link">IoT Automation</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Company -->
+            <div class="footer-col">
+                <h6 class="footer-heading">Company</h6>
+                <ul class="footer-links-list">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="services.html" class="footer-link">Service</a></li>
+                    <li><a href="blog.html" class="footer-link">Blog</a></li>
+                     <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Regional HQ -->
+            <div class="footer-col">
+                <h6 class="footer-heading">Regional Command HQ</h6>
+                <ul class="footer-contact-list">
+                    <li class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot text-accent"></i>
+                        <span>SmartSec Tower, NH-44 IT Corridor, Salem, Tamil Nadu, India</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fa-solid fa-phone" style="color: #FFD700;"></i>
+                        <span>+91 (0427) 244-8000</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <i class="fa-solid fa-envelope" style="color: #00E676;"></i>
+                        <span>audit@smartsec-solutions.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 SmartSec Solutions Ltd. All Rights Reserved. Designed for Absolute Protection.</p>
+        </div>
+
+    </div>
+</footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,      // Animations trigger only once while scrolling down
+            offset: 80,      // Trigger animation 80px before element enters viewport
+            duration: 800,   // Animation duration
+            easing: 'ease-out-cubic'
+        });
+
+        // --- CUSTOM FORM VALIDATION LOGIC ---
+        const form = document.getElementById('contactForm');
+        const successBox = document.getElementById('form-success');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent standard page refresh
+
+            let isValid = true;
+
+            // 1. Validate Full Name
+            const nameInput = document.getElementById('fullName');
+            const nameError = document.getElementById('nameError');
+            if (nameInput.value.trim().length < 3) {
+                nameInput.classList.add('input-error');
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameInput.classList.remove('input-error');
+                nameError.style.display = 'none';
+            }
+
+            // 2. Validate Email (Regex check)
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value.trim())) {
+                emailInput.classList.add('input-error');
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailInput.classList.remove('input-error');
+                emailError.style.display = 'none';
+            }
+
+            // 3. Validate Phone Number (At least 10 digits/characters)
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            if (phoneInput.value.trim().length < 10) {
+                phoneInput.classList.add('input-error');
+                phoneError.style.display = 'block';
+                isValid = false;
+            } else {
+                phoneInput.classList.remove('input-error');
+                phoneError.style.display = 'none';
+            }
+
+            // 4. Validate Project Type Dropdown
+            const projectInput = document.getElementById('projectType');
+            const projectError = document.getElementById('projectError');
+            if (projectInput.value === "") {
+                projectInput.classList.add('input-error');
+                projectError.style.display = 'block';
+                isValid = false;
+            } else {
+                projectInput.classList.remove('input-error');
+                projectError.style.display = 'none';
+            }
+
+            // 5. Validate Message (At least 20 characters)
+            const msgInput = document.getElementById('message');
+            const msgError = document.getElementById('messageError');
+            if (msgInput.value.trim().length < 20) {
+                msgInput.classList.add('input-error');
+                msgError.style.display = 'block';
+                isValid = false;
+            } else {
+                msgInput.classList.remove('input-error');
+                msgError.style.display = 'none';
+            }
+
+            // If all fields are valid -> Show Success Screen & Reset Form!
+            if (isValid) {
+                form.style.display = 'none';
+                successBox.style.display = 'block';
+                form.reset();
+                window.location.href = '404.html'
+            }
+        });
+
+        // Real-time error removal when typing
+        const inputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('input-error');
+                const errorSpan = input.parentElement.querySelector('.error-msg');
+                if (errorSpan) errorSpan.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>
